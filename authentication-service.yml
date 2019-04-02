@@ -1,0 +1,42 @@
+spring:
+ datasource:
+    url: jdbc:mysql://localhost:3306/springbootdb?useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+ jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+    generate-ddl: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+ main:
+    allow-bean-definition-overriding: true
+
+    
+grokonez:
+  app:
+    jwtSecret: jwtStackrouteSecretKey
+    jwtExpiration: 86400
+
+eureka:        
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8082/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+
+
+management:
+    security:
+      enabled: false  
+logging:
+  level:
+    com.stckroute.authentication-service: DEBUG
